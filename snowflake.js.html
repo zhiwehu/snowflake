@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>snowflake.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "", thisFile = "Users/barton/projects/MFV/snowflake//snowflake.js", defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#snowflake">snowflake</a>
+      </div>
+      <div class="heading h2">
+        <a href="#imports">imports</a>
+      </div>
+      <div class="heading h2">
+        <a href="#actions">Actions</a>
+      </div>
+      <div class="heading h2">
+        <a href="#states">States</a>
+      </div>
+      <div class="heading h2">
+        <a href="#initial%20state">Initial state</a>
+      </div>
+      <div class="heading h2">
+        <a href="#native">Native</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>snowflake.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="snowflake">
+  <h1>
+    <a href="#snowflake" name="snowflake" class="pilcrow">&#182;</a>
+    snowflake
+  </h1>
+</div>
+
+
+<p>Snowflake <img src="https://cloud.githubusercontent.com/assets/1282364/11599365/1a1c39d2-9a8c-11e5-8819-bc1e48b30525.png" alt="snowflake" title="" /></p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="imports">
+  <h2>
+    <a href="#imports" name="imports" class="pilcrow">&#182;</a>
+    imports
+  </h2>
+</div>
+
+
+<ul>
+<li><code>Provider</code> will tie the React-Native to the Redux store</li>
+<li><code>App</code> contains Login and TabBar</li>
+<li><code>configureStore</code> will connect the <code>reducers</code>, the
+<code>thunk</code> and the initial state.  </li>
+</ul>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">AppRegistry</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Provider</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux/native&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./containers/App&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">configureStore</span> <span class="nx">from</span> <span class="s1">&#39;./lib/configureStore&#39;</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="actions">
+  <h2>
+    <a href="#actions" name="actions" class="pilcrow">&#182;</a>
+    Actions
+  </h2>
+</div>
+
+
+<p>The necessary actions for dispatching our bootstrap values</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">setPlatform</span><span class="p">,</span> <span class="nx">setVersion</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/device/deviceActions&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">setStore</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/global/globalActions&#39;</span><span class="p">;</span>
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="states">
+  <h2>
+    <a href="#states" name="states" class="pilcrow">&#182;</a>
+    States
+  </h2>
+</div>
+
+
+<p>There are 4 initial states defined and together they make the Apps
+initial state</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="kr">import</span> <span class="nx">authInitialState</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/auth/authInitialState&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">deviceInitialState</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/device/deviceInitialState&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">globalInitialState</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/global/globalInitialState&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">profileInitialState</span> <span class="nx">from</span> <span class="s1">&#39;./reducers/profile/profileInitialState&#39;</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>The version of the app but not  displayed yet </p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">VERSION</span><span class="o">=</span><span class="s1">&#39;0.0.3&#39;</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+<div class="pilwrap" id="initial%20state">
+  <h2>
+    <a href="#initial%20state" name="initial%20state" class="pilcrow">&#182;</a>
+    Initial state
+  </h2>
+</div>
+
+
+<p>Create instances for the keys of each structure </p>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Returns</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name"></span>
+      <span class="dox_type">Object</span>
+      <span>object with 4 keys </span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">getInitialState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">_initState</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="k">new</span> <span class="nx">authInitialState</span><span class="p">,</span>
+    <span class="nx">device</span><span class="o">:</span> <span class="p">(</span><span class="k">new</span> <span class="nx">deviceInitialState</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;isMobile&#39;</span><span class="p">,</span><span class="kc">true</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">,</span><span class="nx">VERSION</span><span class="p">),</span>
+    <span class="nx">global</span><span class="o">:</span> <span class="p">(</span><span class="k">new</span> <span class="nx">globalInitialState</span><span class="p">),</span>
+    <span class="nx">profile</span><span class="o">:</span> <span class="k">new</span> <span class="nx">profileInitialState</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="nx">_initState</span><span class="p">;</span>
+<span class="p">}</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="native">
+  <h2>
+    <a href="#native" name="native" class="pilcrow">&#182;</a>
+    Native
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p><code>configureStore</code> with the <code>initialState</code> and set the
+<code>platform</code> and <code>version</code> into the store by <code>dispatch</code>.
+<em>Note</em> the <code>store</code> itself is set into the <code>store</code>.  This
+will be used when doing hot loading</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="kr">native</span><span class="p">(</span><span class="nx">platform</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">Snowflake</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">(</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">(</span><span class="nx">getInitialState</span><span class="p">());</span>
+      <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">setPlatform</span><span class="p">(</span><span class="nx">platform</span><span class="p">));</span>
+      <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">setVersion</span><span class="p">(</span><span class="nx">VERSION</span><span class="p">));</span>
+      <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">setStore</span><span class="p">(</span><span class="nx">store</span><span class="p">));</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Provider wrap the <code>App</code> with a <code>Provider</code> and both
+have a <code>store</code></p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="k">return</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">Provider</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="p">{()</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">App</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="err">/Provider&gt;</span>
+      <span class="p">);</span>
+
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>registerComponent to the AppRegistery and off we go....</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+  <span class="nx">AppRegistry</span><span class="p">.</span><span class="nx">registerComponent</span><span class="p">(</span><span class="s1">&#39;snowflake&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Snowflake</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

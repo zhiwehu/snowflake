@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "Users/barton/projects/MFV/snowflake//reducers/mocks/Store.js", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#store.js">Store.js</a>
+      </div>
+      <div class="heading h2">
+        <a href="#imports">Imports</a>
+      </div>
+      <div class="heading h2">
+        <a href="#mockstore">mockStore</a>
+      </div>
+      <div class="heading h3">
+        <a href="#mockstorewithoutmiddleware">mockStoreWithoutMiddleware</a>
+      </div>
+      <div class="heading h4">
+        <a href="#dispatch">dispatch</a>
+      </div>
+      <div class="heading h2">
+        <a href="#basic%20testing%20setup">basic testing setup</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="store.js">
+  <h1>
+    <a href="#store.js" name="store.js" class="pilcrow">&#182;</a>
+    Store.js
+  </h1>
+</div>
+
+  </div>
+  <div class="body"><p>This mocks the Redux store</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="imports">
+  <h2>
+    <a href="#imports" name="imports" class="pilcrow">&#182;</a>
+    Imports
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>same middleWare as the app uses</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">thunk</span> <span class="nx">from</span> <span class="s1">&#39;redux-thunk&#39;</span><span class="p">;</span>
+
+
+<span class="kr">const</span> <span class="nx">middlewares</span> <span class="o">=</span> <span class="p">[</span><span class="nx">thunk</span><span class="p">];</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="mockstore">
+  <h2>
+    <a href="#mockstore" name="mockstore" class="pilcrow">&#182;</a>
+    mockStore
+  </h2>
+</div>
+
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">state</span>
+      <span class="dox_type">Object</span>
+      <span><ul>
+<li>initialState </li>
+</ul></span>
+    </div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">expectedActions</span>
+      <span class="dox_type">Object</span>
+      <span><ul>
+<li>array of actions </li>
+</ul></span>
+    </div>
+    <div class="dox_tag_title">See</div>
+    <div class="dox_tag_detail">
+      <a href="http://rackt.org/redux/docs/recipes/WritingTests.html
+">http://rackt.org/redux/docs/recipes/WritingTests.html
+</a>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">mockStore</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">expectedActions</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">expectedActions</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;expectedActions should be an array of expected actions.&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="mockstorewithoutmiddleware">
+  <h3>
+    <a href="#mockstorewithoutmiddleware" name="mockstorewithoutmiddleware" class="pilcrow">&#182;</a>
+    mockStoreWithoutMiddleware
+  </h3>
+</div>
+
+  </div>
+  <div class="body"><p>if the state is a function, execute it</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">function</span> <span class="nx">mockStoreWithoutMiddleware</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">getState</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">typeof</span> <span class="nx">state</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span> <span class="o">?</span> <span class="nx">state</span><span class="p">()</span> <span class="o">:</span> <span class="nx">state</span><span class="p">;</span>
+      <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="dispatch">
+  <h4>
+    <a href="#dispatch" name="dispatch" class="pilcrow">&#182;</a>
+    dispatch
+  </h4>
+</div>
+
+
+<p>each time the action being tested, dispatches an action
+confirm that it is in order, and that all of them have been processed</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">expectedAction</span> <span class="o">=</span> <span class="nx">expectedActions</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+        <span class="k">try</span> <span class="p">{</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">expectedAction</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+          <span class="k">return</span> <span class="nx">action</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="basic%20testing%20setup">
+  <h2>
+    <a href="#basic%20testing%20setup" name="basic%20testing%20setup" class="pilcrow">&#182;</a>
+    basic testing setup
+  </h2>
+</div>
+
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kr">const</span> <span class="nx">mockStoreWithMiddleware</span> <span class="o">=</span> <span class="nx">applyMiddleware</span><span class="p">(</span>
+      <span class="p">...</span><span class="nx">middlewares</span>
+  <span class="p">)(</span><span class="nx">mockStoreWithoutMiddleware</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">mockStoreWithMiddleware</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>
