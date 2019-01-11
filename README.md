@@ -85,7 +85,7 @@ Some quotes from users of **Snowflake**
 >thanks for the thorough videos!
 
 **Patrick**
-> just wanna snowflake is awesome
+> just want to snowflake is awesome
 
 **Justin**
 >Congrats - the project is super helpful
@@ -112,7 +112,7 @@ This application provides one code base that works on both platforms.  It demons
 ###[Jest](https://facebook.github.io/jest/) 
 *81 Unit tests that cover plain objects and JSX components*
 
-The de-facto standard for React/Native testing.  This app demonstrates how to mock **ReactNative, node_modules, classes** and to properly **test JSX components** by programmatically changing the props, and throughly **test the applications data state and the actions** in conjunction with Redux.
+The de-facto standard for React/Native testing.  This app demonstrates how to mock **ReactNative, node_modules, classes** and to properly **test JSX components** by programmatically changing the props, and thoroughly **test the applications data state and the actions** in conjunction with Redux.
 
 ![Jest Coverage Analysis](https://cloud.githubusercontent.com/assets/1282364/11598581/6d38ead8-9a88-11e5-956f-c0f09c22b6f0.png)
 
@@ -409,7 +409,7 @@ What the above diagram depicts is that the logic for login is contained in the A
 
 So what is happening in this diagram?  Where's the Validation?  That would be in step 1.  When the user enters characters on the form, they are sent to an action.  The action packages them up and sends them to the Reducer.  The reducer looks at what Type the Action is and performs the operation, in this case, Validate the parameters.
 
-How does Login respond?  Well, it recieves the updated Props - the properties which are the store.  It then renders it's output based on those properties.  Just straight forward logic - nothing more then checking the properties and display approptiately.  At no time does the Login component change any property state.  
+How does Login respond?  Well, it receives the updated Props - the properties which are the store.  It then renders it's output based on those properties.  Just straight forward logic - nothing more then checking the properties and display approptiately.  At no time does the Login component change any property state.  
 
 The responsibility of changing state belongs to the Reducer.
 
